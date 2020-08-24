@@ -24,21 +24,7 @@ void CALLBACK CSupportWindow::TimerProc(HWND, UINT, UINT_PTR idEvent, DWORD)
 
 void CSupportWindow::Show(HWND hParent)
 {
-    m_RunCount = UISettingsLoadDword(SupportWindows_RunCount);
-    if (m_RunCount == -1)
-    {
-        return;
-    }
-    UISettingsSaveDword(SupportWindows_RunCount, m_RunCount + 1);
-
-    if (m_RunCount < 3)
-    {
-        return;
-    }
-
-    m_hParent = hParent;
-    m_this = this;
-    ::SetTimer(NULL, 0, 2500, TimerProc);
+    return; // Skip nag screen :)
 }
 
 void CSupportWindow::EnableContinue()
